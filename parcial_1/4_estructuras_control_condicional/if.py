@@ -32,8 +32,8 @@ color="rojo"
 
 if color=="rojo":
      print("Soy el color rojo")
-    if color!="rojo":
-        print("No soy rojo color mejor")
+if color!="rojo":
+    print("No soy rojo color mejor")
 
 else:
     print("No soy el color rojo")

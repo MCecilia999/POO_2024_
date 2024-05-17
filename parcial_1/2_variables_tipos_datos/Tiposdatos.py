@@ -19,6 +19,20 @@ logico=False
 palabra="hola"
 palabra2="@"
 lista=[10,20,30,40]
+lista2=(True,10,3.3,"Que tal","9")
+tuple=("Hola","que","tal")
+dict={
+    "nombre":"Daniel",
+    "apellido":"Hernandez Homez",
+    "edad":20,
+    "estatura":1.7
+}
+
+#Mostrar el tipo de dato de cada identificador
+print(type(entero))
+print(type(float))
+print(type(logico))
+print(type(palabra))
 
        
 
