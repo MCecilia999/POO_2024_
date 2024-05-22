@@ -7,7 +7,7 @@
 
 
 #Ejemplo 1 Crear un programa que imprima 5 veces el caracter @
-
+i=0
 contador=0
 while contador <=5: 
     print("@")
