@@ -5,7 +5,7 @@ def crear_conexion():
     try:
         conexion = mysql.connector.connect(
             host='localhost',
-            database='bd_python',
+            database='mi_empresa',
             user='root',
             password=''
         )
@@ -20,6 +20,20 @@ def cerrar_conexion(conexion):
     if conexion.is_connected():
         conexion.close()
         print("Conexión cerrada")
+
+def crear_tabla_empleados(conexion):
+    cursor = conexion.cursor()
+    query = """
+    CREATE TABLE IF NOT EXISTS empleados (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombre VARCHAR(255) NOT NULL,
+        puesto VARCHAR(255) NOT NULL,
+        salario DECIMAL(10, 2) NOT NULL
+    )
+    """
+    cursor.execute(query)
+    conexion.commit()
+    print("Tabla 'empleados' creada o ya existe")
 
 def crear_empleado(conexion, nombre, puesto, salario):
     cursor = conexion.cursor()
@@ -56,6 +70,7 @@ def eliminar_empleado(conexion, id):
 def menu():
     conexion = crear_conexion()
     if conexion:
+        crear_tabla_empleados(conexion)  # Crear la tabla 'empleados' si no existe
         while True:
             print("\n--- Menú de Opciones ---")
             print("1. Crear empleado")
@@ -87,5 +102,6 @@ def menu():
             else:
                 print("Opción no válida. Inténtalo de nuevo.")
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     menu()
+
